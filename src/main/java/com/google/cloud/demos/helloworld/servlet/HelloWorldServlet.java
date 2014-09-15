@@ -16,8 +16,6 @@ public class HelloWorldServlet extends HttpServlet {
         resp.getWriter().println("testing testing!!");
       
       
-      
-      
          
     }
 }
