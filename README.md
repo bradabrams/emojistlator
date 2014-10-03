@@ -1,6 +1,24 @@
+App Engine Java Guestbook
+Copyright (C) 2010-2014 Google Inc.
 
-Copyright (C) 2014 Google Inc.
+## Sample guestbook for use with App Engine Java.
 
-This repo contains a tutorial that walks through use of Managed VMs and the new gcloud SDK for a Java app, based on an extended version of the "guestbook" app. It shows how you can test Managed VMs locally, as well as deploy using the new SDK; and shows how to "escape the sandbox" and use a non-default `Dockerfile`.
+Requires [Apache Maven](http://maven.apache.org) 3.1 or greater, and JDK 7+ in order to run.
 
-See the tutorial 'java_mvms_tutorial' in this directory.
+To build, run
+
+    mvn package
+
+Building will run the tests, but to explicitly run tests you can use the test target
+
+    mvn test
+
+To start the app, use the [App Engine Maven Plugin](http://code.google.com/p/appengine-maven-plugin/) that is already included in this demo.  Just run the command.
+
+    mvn appengine:devserver
+
+For further information, consult the [Java App Engine](https://developers.google.com/appengine/docs/java/overview) documentation.
+
+To see all the available goals for the App Engine plugin, run
+
+    mvn help:describe -Dplugin=appengine
