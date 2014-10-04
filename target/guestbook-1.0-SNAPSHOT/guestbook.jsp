@@ -37,7 +37,7 @@
 %>
 <p>Hello!
     <a href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a>
-    to include your name with greetings you post.</p>
+    to include your name with your emoji.</p>
 <%
     }
 %>
@@ -51,11 +51,11 @@
     List<Entity> greetings = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(5));
     if (greetings.isEmpty()) {
 %>
-<p>Guestbook '${fn:escapeXml(guestbookName)}' has no messages.</p>
+<p> There are no translations yet.. be the first!</p>
 <%
 } else {
 %>
-<p>Messages in Guestbook '${fn:escapeXml(guestbookName)}'.</p>
+<p>Past Emoji Translations'${fn:escapeXml(guestbookName)}'.</p>
 <%
     for (Entity greeting : greetings) {
         pageContext.setAttribute("greeting_content",
@@ -64,7 +64,7 @@
                 greeting.getProperty("imageUrls"));
         if (greeting.getProperty("user") == null) {
 %>
-<p>An anonymous person wrote:</p>
+<p>An anonymous person Translated:</p>
 <%
 } else {
     pageContext.setAttribute("greeting_user",
@@ -74,10 +74,13 @@
 <%
     }
 %>
+<h2> English Text </h2>
 <blockquote>${fn:escapeXml(greeting_content)}</blockquote>
+<h2> emoji Translation <h2>
 <image src=${fn:split(greeting_imageUrls, "|")[0]}></image>
 <image src=${fn:split(greeting_imageUrls, "|")[1]}></image>
 <image src=${fn:split(greeting_imageUrls, "|")[2]}></image>
+<image src=${fn:split(greeting_imageUrls, "|")[3]}></image>
 
 
 
@@ -90,9 +93,6 @@
 <% } %>
 
 
-
-
-
 <%
         }
     }
@@ -100,16 +100,12 @@
 
 <form action="/sign" method="post">
     <div><textarea name="content" rows="3" cols="60"></textarea></div>
-    <div><input type="submit" value="Post Greeting"/></div>
+    <div><input type="submit" value="Post Message to Convert to emoji"/>
+    </div>
     <input type="hidden" name="guestbookName" value="${fn:escapeXml(guestbookName)}"/>
 </form>
 
-<form action="/guestbook.jsp" method="get">
-    <div>
-         <input type="text" name="guestbookName" 
-                value="${fn:escapeXml(guestbookName)}"/>
-    </div>
-</form>
+
 
 </body>
 </html>
