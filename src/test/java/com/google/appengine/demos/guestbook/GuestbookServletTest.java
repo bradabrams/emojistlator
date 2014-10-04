@@ -69,8 +69,8 @@ public class GuestbookServletTest {
     guestbookServlet.doGet(request, response);
 
     User currentUser = UserServiceFactory.getUserService().getCurrentUser();
-
     assertEquals(true,  stringWriter.toString().startsWith("Hello"));
+
   }
 
 }

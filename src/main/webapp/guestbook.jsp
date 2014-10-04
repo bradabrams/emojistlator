@@ -60,6 +60,8 @@
     for (Entity greeting : greetings) {
         pageContext.setAttribute("greeting_content",
                 greeting.getProperty("content"));
+        pageContext.setAttribute("greeting_imageUrls",
+                greeting.getProperty("imageUrls"));
         if (greeting.getProperty("user") == null) {
 %>
 <p>An anonymous person wrote:</p>
@@ -73,6 +75,22 @@
     }
 %>
 <blockquote>${fn:escapeXml(greeting_content)}</blockquote>
+<image src=${fn:split(greeting_imageUrls, "|")[0]}></image>
+<image src=${fn:split(greeting_imageUrls, "|")[1]}></image>
+<image src=${fn:split(greeting_imageUrls, "|")[2]}></image>
+<image src=${fn:split(greeting_imageUrls, "|")[3]}></image>
+
+
+
+
+<br>
+<% 
+  String images = (String) pageContext.getAttribute("greeting_imageUrls");
+  for (String imgpath: images.split("|")) {  %>
+        <image src=${imgpath}></image>
+<% } %>
+
+
 <%
         }
     }
@@ -84,10 +102,7 @@
     <input type="hidden" name="guestbookName" value="${fn:escapeXml(guestbookName)}"/>
 </form>
 
-<form action="/guestbook.jsp" method="get">
-    <div><input type="text" name="guestbookName" value="${fn:escapeXml(guestbookName)}"/></div>
-    <div><input type="submit" value="Switch Guestbook"/></div>
-</form>
+
 
 </body>
 </html>

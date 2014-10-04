@@ -42,15 +42,47 @@ public class SignGuestbookServlet extends HttpServlet {
     String guestbookName = req.getParameter("guestbookName");
     Key guestbookKey = KeyFactory.createKey("Guestbook", guestbookName);
     String content = req.getParameter("content");
+    String imageUrls; 
+
     Date date = new Date();
     Entity greeting = new Entity("Greeting", guestbookKey);
+    imageUrls = "http://emojipedia.org/wp-content/uploads/2013/08/160x160xtaurus.png.pagespeed.ic.R8sR40t7AQ.jpg" 
+      + " | " + "http://emojipedia.org/wp-content/uploads/2013/08/160x160xtaurus.png.pagespeed.ic.R8sR40t7AQ.jpg"
+      + " | " + "http://emojipedia.org/wp-content/uploads/2013/08/160x160xtaurus.png.pagespeed.ic.R8sR40t7AQ.jpg";
+    
+    imageUrls = getImageUrls (content);
     greeting.setProperty("user", user);
     greeting.setProperty("date", date);
     greeting.setProperty("content", content);
+    greeting.setProperty("imageUrls", imageUrls);
+
 
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(greeting);
 
     resp.sendRedirect("/guestbook.jsp?guestbookName=" + guestbookName);
   }
+
+  public String getImageUrls (String content) {
+    String temp = "";
+    for (String word: content.split(" ")) {
+      switch (word.toLowerCase()) {
+        case "dog":
+          temp += " | " + "http://emojipedia.org/wp-content/uploads/2013/07/160x160x192-dog-face.png.pagespeed.ic.CtTA9k9apv.jpg";
+          break;
+        case "happy":
+          temp += " | " + "http://emojipedia.org/wp-content/uploads/2014/04/128x128x1f604-google-android.png.pagespeed.ic.twhEpshRwL.png";
+          break;
+        case "hot":
+          temp += " | " + "http://emojipedia.org/wp-content/uploads/2014/04/128x128x1f31e-google-android.png.pagespeed.ic.bvWcqm12QS.png";
+          break;
+        case "kiss":
+          temp += " | " + "http://emojipedia.org/wp-content/uploads/2014/04/128x128x1f48f-google-android.png.pagespeed.ic.vN74TXwtMP.png";
+          break;
+
+      }
+    }
+    return temp + "|||||";
+  }
+
 }
