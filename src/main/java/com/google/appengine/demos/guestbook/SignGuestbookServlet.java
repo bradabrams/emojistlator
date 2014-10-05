@@ -82,6 +82,9 @@ public class SignGuestbookServlet extends HttpServlet {
   public String[] getImageUrls (String content) {
     String temp = "";
     java.util.ArrayList l = new java.util.ArrayList ();
+    content = content.replace ("?", " ?");
+    content = content.replace ("!", " !");
+
 
     for (String word: content.split(" ")) {
       switch (word.toLowerCase()) {
