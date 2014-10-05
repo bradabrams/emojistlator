@@ -58,14 +58,14 @@ public class SignGuestbookServlet extends HttpServlet {
     greeting.setProperty("user", user);
     greeting.setProperty("date", date);
     greeting.setProperty("content", content);
-    greeting.setProperty("imageUrls", imageUrls2[0]);
 
     log.info("some sample log");
     log.info(Integer.toString(imageUrls2.length));
 
     int i = 0;
     for (String s:  imageUrls2) {
-      greeting.setProperty("imageUrls"+Integer.toString(i++),s); 
+      String num = Integer.toString(i);
+      greeting.setProperty("imageUrls"+num,s); 
       i++;
     }
 
@@ -84,6 +84,10 @@ public class SignGuestbookServlet extends HttpServlet {
     java.util.ArrayList l = new java.util.ArrayList ();
     content = content.replace ("?", " ?");
     content = content.replace ("!", " !");
+    content = content.replace (".", " .");
+    content = content.replace (",", " ,");
+    content = content.replace ("\"", " \"");
+
 
 
     for (String word: content.split(" ")) {

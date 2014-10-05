@@ -63,20 +63,12 @@
     for (Entity greeting : greetings) {
         pageContext.setAttribute("greeting_content",
                 greeting.getProperty("content"));
-        pageContext.setAttribute("greeting_imageUrls",
-               greeting.getProperty("imageUrls"));
-        pageContext.setAttribute("greeting_imageUrls0",
-               greeting.getProperty("imageUrls0"));
-        pageContext.setAttribute("greeting_imageUrls1",
-               greeting.getProperty("imageUrls1"));
-        pageContext.setAttribute("greeting_imageUrls2",
-               greeting.getProperty("imageUrls2"));
-        pageContext.setAttribute("greeting_imageUrls3",
-               greeting.getProperty("imageUrls3"));
-        pageContext.setAttribute("greeting_imageUrls3",
-               greeting.getProperty("imageUrls3"));
-        pageContext.setAttribute("greeting_imageUrls4",
-               greeting.getProperty("imageUrls4"));
+ 
+        for (int i = 0; i < 10; i++){
+           String num = Integer.toString (i);
+           pageContext.setAttribute("greeting_imageUrls"+num,
+               greeting.getProperty("imageUrls"+num));
+        }
 
         if (greeting.getProperty("user") == null) {
 %>
@@ -100,6 +92,11 @@
                <image src=${greeting_imageUrls2}></image> 
                <image src=${greeting_imageUrls3}></image> 
                <image src=${greeting_imageUrls4}></image> 
+               <image src=${greeting_imageUrls5}></image> 
+               <image src=${greeting_imageUrls6}></image> 
+               <image src=${greeting_imageUrls7}></image> 
+               <image src=${greeting_imageUrls8}></image> 
+               <image src=${greeting_imageUrls9}></image> 
 </blockquote>
     <% 
     } 
