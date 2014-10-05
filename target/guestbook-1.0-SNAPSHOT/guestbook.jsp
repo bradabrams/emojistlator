@@ -25,6 +25,8 @@
         guestbookName = "default";
     }
     pageContext.setAttribute("guestbookName", guestbookName);
+
+    
     UserService userService = UserServiceFactory.getUserService();
     User user = userService.getCurrentUser();
     if (user != null) {
@@ -49,22 +51,36 @@
     // view of the Greetings belonging to the selected Guestbook.
     Query query = new Query("Greeting", guestbookKey).addSort("date", Query.SortDirection.DESCENDING);
     List<Entity> greetings = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(5));
+    int imageCount = -1;
     if (greetings.isEmpty()) {
 %>
 <p> There are no translations yet.. be the first!</p>
 <%
 } else {
 %>
-<p>Past Emoji Translations'${fn:escapeXml(guestbookName)}'.</p>
+<p>Past Emoji Translations.</p>
 <%
     for (Entity greeting : greetings) {
         pageContext.setAttribute("greeting_content",
                 greeting.getProperty("content"));
         pageContext.setAttribute("greeting_imageUrls",
-                greeting.getProperty("imageUrls"));
+               greeting.getProperty("imageUrls"));
+        pageContext.setAttribute("greeting_imageUrls0",
+               greeting.getProperty("imageUrls0"));
+        pageContext.setAttribute("greeting_imageUrls1",
+               greeting.getProperty("imageUrls1"));
+        pageContext.setAttribute("greeting_imageUrls2",
+               greeting.getProperty("imageUrls2"));
+        pageContext.setAttribute("greeting_imageUrls3",
+               greeting.getProperty("imageUrls3"));
+        pageContext.setAttribute("greeting_imageUrls3",
+               greeting.getProperty("imageUrls3"));
+        pageContext.setAttribute("greeting_imageUrls4",
+               greeting.getProperty("imageUrls4"));
+
         if (greeting.getProperty("user") == null) {
 %>
-<p>An anonymous person Translated:</p>
+<p>An anonymous person ask for:</p>
 <%
 } else {
     pageContext.setAttribute("greeting_user",
@@ -74,29 +90,21 @@
 <%
     }
 %>
-<h2> English Text </h2>
+
 <blockquote>${fn:escapeXml(greeting_content)}</blockquote>
-<h2> emoji Translation <h2>
-<image src=${fn:split(greeting_imageUrls, "|")[0]}></image>
-<image src=${fn:split(greeting_imageUrls, "|")[1]}></image>
-<image src=${fn:split(greeting_imageUrls, "|")[2]}></image>
-<image src=${fn:split(greeting_imageUrls, "|")[3]}></image>
-
-
-
-
-<br>
-<% 
-  String images = (String) pageContext.getAttribute("greeting_imageUrls");
-  for (String imgpath: images.split("|")) {  %>
-        <image src=${imgpath}></image>
-<% } %>
-
-
-<%
-        }
-    }
-%>
+ to be translated into emoji 
+ <br>
+<blockquote>
+               <image src=${greeting_imageUrls0}></image> 
+               <image src=${greeting_imageUrls1}></image> 
+               <image src=${greeting_imageUrls2}></image> 
+               <image src=${greeting_imageUrls3}></image> 
+               <image src=${greeting_imageUrls4}></image> 
+</blockquote>
+    <% 
+    } 
+}
+    %>
 
 <form action="/sign" method="post">
     <div><textarea name="content" rows="3" cols="60"></textarea></div>

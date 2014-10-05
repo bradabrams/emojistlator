@@ -27,15 +27,22 @@ import com.google.appengine.api.users.UserServiceFactory;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.logging.Logger;
 
 public class SignGuestbookServlet extends HttpServlet {
+
+    private static final Logger log = Logger.getLogger(SignGuestbookServlet.class.getName());
+
+
   @Override
   public void doPost(HttpServletRequest req, HttpServletResponse resp)
       throws IOException {
+
     UserService userService = UserServiceFactory.getUserService();
     User user = userService.getCurrentUser();
 
@@ -46,43 +53,60 @@ public class SignGuestbookServlet extends HttpServlet {
 
     Date date = new Date();
     Entity greeting = new Entity("Greeting", guestbookKey);
-    imageUrls = "http://emojipedia.org/wp-content/uploads/2013/08/160x160xtaurus.png.pagespeed.ic.R8sR40t7AQ.jpg" 
-      + " | " + "http://emojipedia.org/wp-content/uploads/2013/08/160x160xtaurus.png.pagespeed.ic.R8sR40t7AQ.jpg"
-      + " | " + "http://emojipedia.org/wp-content/uploads/2013/08/160x160xtaurus.png.pagespeed.ic.R8sR40t7AQ.jpg";
     
-    imageUrls = getImageUrls (content);
+    String[] imageUrls2 = getImageUrls (content);
     greeting.setProperty("user", user);
     greeting.setProperty("date", date);
     greeting.setProperty("content", content);
-    greeting.setProperty("imageUrls", imageUrls);
+    greeting.setProperty("imageUrls", imageUrls2[0]);
+
+    log.info("some sample log");
+    log.info(Integer.toString(imageUrls2.length));
+
+    int i = 0;
+    for (String s:  imageUrls2) {
+      greeting.setProperty("imageUrls"+Integer.toString(i++),s); 
+      i++;
+    }
+
 
 
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(greeting);
 
+
+
     resp.sendRedirect("/guestbook.jsp?guestbookName=" + guestbookName);
   }
 
-  public String getImageUrls (String content) {
+  public String[] getImageUrls (String content) {
     String temp = "";
+    java.util.ArrayList l = new java.util.ArrayList ();
+
     for (String word: content.split(" ")) {
       switch (word.toLowerCase()) {
         case "dog":
-          temp += " | " + "http://emojipedia.org/wp-content/uploads/2013/07/160x160x192-dog-face.png.pagespeed.ic.CtTA9k9apv.jpg";
+          l.add ("http://emojipedia.org/wp-content/uploads/2013/07/160x160x192-dog-face.png.pagespeed.ic.CtTA9k9apv.jpg");
           break;
         case "happy":
-          temp += " | " + "http://emojipedia.org/wp-content/uploads/2014/04/128x128x1f604-google-android.png.pagespeed.ic.twhEpshRwL.png";
+          l.add ("http://emojipedia.org/wp-content/uploads/2014/04/128x128x1f604-google-android.png.pagespeed.ic.twhEpshRwL.png");
           break;
         case "hot":
-          temp += " | " + "http://emojipedia.org/wp-content/uploads/2014/04/128x128x1f31e-google-android.png.pagespeed.ic.bvWcqm12QS.png";
+          l.add ("http://emojipedia.org/wp-content/uploads/2014/04/128x128x1f31e-google-android.png.pagespeed.ic.bvWcqm12QS.png");
           break;
         case "kiss":
-          temp += " | " + "http://emojipedia.org/wp-content/uploads/2014/04/128x128x1f48f-google-android.png.pagespeed.ic.vN74TXwtMP.png";
+          l.add ("http://emojipedia.org/wp-content/uploads/2014/04/128x128x1f48f-google-android.png.pagespeed.ic.vN74TXwtMP.png");
           break;
-
+        case "question":
+        case "questions":
+        case "?":
+          l.add ("http://emojipedia.org/wp-content/uploads/2013/08/160x160xwhite-question-mark-ornament.png.pagespeed.ic.fU4MuC4p7q.png");
+          
+        default:
+          break;
       }
     }
-    return temp + "|||||";
+    return (String[]) l.toArray(new String[0]);
   }
 
 }
