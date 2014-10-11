@@ -46,6 +46,7 @@ public class SignGuestbookServlet extends HttpServlet {
 
     if (randInt (0,100) < 50) {
        try {
+          log.info("Taking a nap now.. sleeping for a bit ");
           Thread.sleep(5000);  //5000 milliseconds is five second.
        } catch(InterruptedException ex) { } 
     }
