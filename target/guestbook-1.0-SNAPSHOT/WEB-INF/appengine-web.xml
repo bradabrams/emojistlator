@@ -9,11 +9,12 @@
     <manual-scaling>
         <instances>1</instances>
     </manual-scaling>
-    
+
+<!---    
    <env-variables>
       <env-var name="CDBG_ENABLE" value="1" />
    </env-variables>
-
+-->
 
 
     <system-properties>

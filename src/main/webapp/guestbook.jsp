@@ -9,6 +9,7 @@
 <%@ page import="com.google.appengine.api.users.User" %>
 <%@ page import="com.google.appengine.api.users.UserService" %>
 <%@ page import="com.google.appengine.api.users.UserServiceFactory" %>
+<%@ page import="com.google.appengine.api.datastore.PreparedQuery" %>
 <%@ page import="java.util.List" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
@@ -20,6 +21,20 @@
 <body>
 
 <%
+
+
+   if (request.getParameter("deleteall") != null) {
+      DatastoreService datastoretodelete = 
+                    DatastoreServiceFactory.getDatastoreService();
+    Query mydeleteq = new Query();
+    PreparedQuery pq = datastoretodelete.prepare(mydeleteq);
+    for (Entity result : pq.asIterable()) {
+        datastoretodelete.delete(result.getKey());  
+   }
+ }
+
+
+
     String guestbookName = request.getParameter("guestbookName");
     if (guestbookName == null) {
         guestbookName = "default";
