@@ -10,6 +10,8 @@
 <%@ page import="com.google.appengine.api.users.UserService" %>
 <%@ page import="com.google.appengine.api.users.UserServiceFactory" %>
 <%@ page import="com.google.appengine.api.datastore.PreparedQuery" %>
+<%@ page import="com.google.appengine.api.datastore.QueryResultIterator" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.List" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
@@ -21,19 +23,6 @@
 <body>
 
 <%
-
-
-   if (request.getParameter("deleteall") != null) {
-      DatastoreService datastoretodelete = 
-                    DatastoreServiceFactory.getDatastoreService();
-    Query mydeleteq = new Query();
-    PreparedQuery pq = datastoretodelete.prepare(mydeleteq);
-    for (Entity result : pq.asIterable()) {
-        datastoretodelete.delete(result.getKey());  
-   }
- }
-
-
 
     String guestbookName = request.getParameter("guestbookName");
     if (guestbookName == null) {
@@ -68,13 +57,13 @@
     List<Entity> greetings = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(5));
     int imageCount = -1;
     if (greetings.isEmpty()) {
-%>
-<p> There are no translations yet.. be the first!</p>
-<%
-} else {
-%>
-<p>Past Emoji Translations.</p>
-<%
+    %>
+       <p> There are no translations yet.. be the first!</p>
+    <%   
+     } else {
+    %>
+    <p>Past Emoji Translations.</p>
+    <%
     for (Entity greeting : greetings) {
         pageContext.setAttribute("greeting_content",
                 greeting.getProperty("content"));

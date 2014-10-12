@@ -5,12 +5,20 @@
         <servlet-class>com.google.appengine.demos.guestbook.SignGuestbookServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>deleteall</servlet-name>
+        <servlet-class>com.google.appengine.demos.guestbook.DeleteAllEntriesServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>test</servlet-name>
         <servlet-class>com.google.appengine.demos.guestbook.GuestbookServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>sign</servlet-name>
         <url-pattern>/sign</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deleteall</servlet-name>
+        <url-pattern>/deleteall</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>test</servlet-name>
