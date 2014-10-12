@@ -88,8 +88,13 @@
                 <artifactId>appengine-maven-plugin</artifactId>
                 <version>${appengine.target.version}</version>
                 <configuration>
-                   <fullScanSeconds>1</fullScanSeconds>
-                   <server>preview.appengine.google.com</server>
+                   <gcloud_app_server>preview.appengine.google.com</gcloud_app_server>
+                   <!--These two are necessary for the latest build
+                   <gcloud_app_api_host>50.247.126.94:51515</gcloud_app_api_host>
+                   <gcloud_app_docker_host>tcp://192.168.59.103:2375</gcloud_app_docker_host>
+                   -->
+                   <!--optional fields, replace with your specific values...-->
+                   <gcloud_directory>/Users/bma/google-cloud-sdk</gcloud_directory>
                 </configuration>
             </plugin>
             <plugin>

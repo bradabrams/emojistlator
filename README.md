@@ -16,7 +16,15 @@ Building will run the tests, but to explicitly run tests you can use the test ta
 
 To start the app, use the [App Engine Maven Plugin](http://code.google.com/p/appengine-maven-plugin/) that is already included in this demo.  Just run the command.
 
-    mvn appengine:devserver
+//old way--    mvn appengine:devserver
+
+// new way
+ mvn appengine:gcloud_app_run
+
+see managed VM's help doc: 
+https://docs.google.com/a/google.com/document/d/1wno0ZZaDulHugUJ2RIc0uvZSlixzC3xAwo5Te-bxL50/edit#
+
+
 
 For further information, consult the [Java App Engine](https://developers.google.com/appengine/docs/java/overview) documentation.
 
