@@ -119,6 +119,7 @@ public class SignGuestbookServlet extends HttpServlet {
           l.add ("http://emojipedia.org/wp-content/uploads/2013/08/160x160xwhite-question-mark-ornament.png.pagespeed.ic.fU4MuC4p7q.png");
           
         default:
+          log.info("did not find a match for: " + word);
           break;
       }
     }
