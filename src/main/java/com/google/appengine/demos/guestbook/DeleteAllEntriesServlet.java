@@ -17,8 +17,6 @@
 
 
 
-
-
 package com.google.appengine.demos.guestbook;
 
 import com.google.appengine.api.datastore.DatastoreService;
