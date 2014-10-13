@@ -33,6 +33,7 @@ To see all the available goals for the App Engine plugin, run
     mvn help:describe -Dplugin=appengine
 
 To deploy run:
-gcloud preview app deploy --server preview.appengine.google.com target/guestbook-1.0-SNAPOTOT
+gcloud preview app deploy --server preview.appengine.google.com target/guestbook-1.0-SNAPSHOT
+
 
 
