@@ -68,6 +68,8 @@ public class SignGuestbookServlet extends HttpServlet {
     greeting.setProperty("content", content);
 
     log.info("some sample log");
+    log.severe("some sample severe  log");
+
     log.info(Integer.toString(imageUrls2.length));
 
     int i = 0;
