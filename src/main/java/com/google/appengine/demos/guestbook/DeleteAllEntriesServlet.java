@@ -68,8 +68,6 @@ public class DeleteAllEntriesServlet extends HttpServlet {
           } catch (Exception e) {}  
     
    }
-
-  
    
 
    // fast way:
