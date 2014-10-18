@@ -34,6 +34,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.logging.Logger;
 import java.util.Random ; 
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
 
 public class SignGuestbookServlet extends HttpServlet {
 
@@ -44,8 +49,10 @@ public class SignGuestbookServlet extends HttpServlet {
   public void doPost(HttpServletRequest req, HttpServletResponse resp)
       throws IOException {
 
+    String feed;
     if (randInt (0,100) < 50) {
        try {
+          feed = getTwitterFeed();
           log.info("Taking a nap now.. sleeping for a bit ");
           Thread.sleep(5000);  //5000 milliseconds is five second.
        } catch(InterruptedException ex) { } 
@@ -87,6 +94,26 @@ public class SignGuestbookServlet extends HttpServlet {
 
 
     resp.sendRedirect("/guestbook.jsp?guestbookName=" + guestbookName);
+  }
+
+  public static String getTwitterFeed () {
+     String value = "not set";
+     try {
+       URL url = new URL("https://twitter.com/brada");
+       BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
+       String line;
+
+       while ((line = reader.readLine()) != null) {
+        value = line;
+       }
+       reader.close();
+
+      } catch (MalformedURLException e) {
+        // ...
+      } catch (IOException e) {
+       // ...
+    }
+    return value;
   }
 
   public String[] getImageUrls (String content) {
