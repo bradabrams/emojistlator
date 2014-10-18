@@ -50,7 +50,7 @@ public class SignGuestbookServlet extends HttpServlet {
       throws IOException {
 
     String feed;
-    if (randInt (0,100) < 50) {
+    if (randInt (0,100) <= 1) {
        try {
           feed = getTwitterFeed();
           //log.info("Taking a nap now.. sleeping for a bit ");
