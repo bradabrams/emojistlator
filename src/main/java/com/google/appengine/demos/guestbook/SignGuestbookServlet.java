@@ -53,9 +53,9 @@ public class SignGuestbookServlet extends HttpServlet {
     if (randInt (0,100) < 50) {
        try {
           feed = getTwitterFeed();
-          log.info("Taking a nap now.. sleeping for a bit ");
-          Thread.sleep(5000);  //5000 milliseconds is five second.
-       } catch(InterruptedException ex) { } 
+          //log.info("Taking a nap now.. sleeping for a bit ");
+          //Thread.sleep(5000);  //5000 milliseconds is five second.
+       } catch(Exception e) { } 
     }
 
     UserService userService = UserServiceFactory.getUserService();
@@ -105,6 +105,7 @@ public class SignGuestbookServlet extends HttpServlet {
 
        while ((line = reader.readLine()) != null) {
         value = line;
+        log.info ("from twitter" + line);
        }
        reader.close();
 
