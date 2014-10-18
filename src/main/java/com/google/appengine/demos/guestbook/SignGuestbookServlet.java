@@ -52,6 +52,7 @@ public class SignGuestbookServlet extends HttpServlet {
     String feed;
     if (randInt (0,100) <= 1) {
        try {
+          log.info("In Experiment for getting realated twitter feed");
           feed = getTwitterFeed();
           //log.info("Taking a nap now.. sleeping for a bit ");
           //Thread.sleep(5000);  //5000 milliseconds is five second.
