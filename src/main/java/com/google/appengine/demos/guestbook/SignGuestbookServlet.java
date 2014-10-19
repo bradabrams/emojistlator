@@ -169,12 +169,13 @@ public class SignGuestbookServlet extends HttpServlet {
 
      value = value.toLowerCase();
 
-       /* value = value.replace ("?", " ?");
+    
+    value = value.replace ("?", " ?");
     value = value.replace ("!", " !");
     value = value.replace (".", " .");
     value = value.replace (",", " ,");
     value = value.replace ("\"", " \"");
-    */
+    
     return value;
 
   }
