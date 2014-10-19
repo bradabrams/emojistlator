@@ -11,7 +11,8 @@
     </manual-scaling>
 
    <env-variables>
-      <env-var name="CDBG_ENABLE" value="1" />
+      <!-- TODO(athicha): Why was this added? -->
+      <!--env-var name="CDBG_ENABLE" value="1" /-->
    </env-variables>
 
     <system-properties>
