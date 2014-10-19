@@ -12,7 +12,9 @@
 
    <env-variables>
       <!-- TODO(athicha): Why was this added? -->
-      <!--env-var name="CDBG_ENABLE" value="1" /-->
+      <!-- bma: this is need for the cloud debubger  -->
+      
+      <env-var name="CDBG_ENABLE" value="1" >
    </env-variables>
 
     <system-properties>
