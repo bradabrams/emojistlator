@@ -142,6 +142,12 @@ public class SignGuestbookServlet extends HttpServlet {
         case "kiss":
           l.add ("http://emojipedia.org/wp-content/uploads/2014/04/128x128x1f48f-google-android.png.pagespeed.ic.vN74TXwtMP.png");
           break;
+        case "drinks":
+          l.add ("http://pix.iemoji.com/sbemojix2/0315.png");
+          break;
+        case "city":
+          l.add ("http://pix.iemoji.com/sbemojix2/0213.png");
+          break;
         case "question":
         case "questions":
         case "?":
