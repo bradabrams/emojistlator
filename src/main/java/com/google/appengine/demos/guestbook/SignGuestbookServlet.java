@@ -52,13 +52,13 @@ public class SignGuestbookServlet extends HttpServlet {
      log.info("start processing");
    
     String feed;
-    /*if (randInt (0,100) <= 5) {
+    if (randInt (0,100) <= 5) {
        try {
           log.info("In Experiment for getting realated twitter feed");
           feed = getTwitterFeed();
        } catch(Exception e) { } 
     }
-    */
+    
 
     UserService userService = UserServiceFactory.getUserService();
     User user = userService.getCurrentUser();
