@@ -120,16 +120,16 @@ public class SignGuestbookServlet extends HttpServlet {
     String temp = "";
     java.util.ArrayList l = new java.util.ArrayList ();
    
-   /* content = content.replace ("?", " ?");
-    content = content.replace ("!", " !");
-    content = content.replace (".", " .");
-    content = content.replace (",", " ,");
-    content = content.replace ("\"", " \"");
-*/
 
+    content = canonicalize (content);
 
     for (String word: content.split(" ")) {
-      switch (word.toLowerCase()) {
+      switch (word) {
+        case "the":
+        case "in":
+        case "a":
+        case "to":
+           break; // we don't need translations for these
         case "dog":
           l.add ("http://emojipedia.org/wp-content/uploads/2013/07/160x160x192-dog-face.png.pagespeed.ic.CtTA9k9apv.jpg");
           break;
@@ -159,6 +159,20 @@ public class SignGuestbookServlet extends HttpServlet {
       }
     }
     return (String[]) l.toArray(new String[0]);
+  }
+
+  public static String canonicalize (String value) {
+
+     value = value.toLowerCase();
+
+       /* value = value.replace ("?", " ?");
+    value = value.replace ("!", " !");
+    value = value.replace (".", " .");
+    value = value.replace (",", " ,");
+    value = value.replace ("\"", " \"");
+    */
+    return value;
+
   }
 
   /**
