@@ -150,7 +150,7 @@ public class SignGuestbookServlet extends HttpServlet {
           break;
         case "tonight":
         case "night":
-           l.add ("http://emojipedia.org/wp-content/uploads/2014/04/128x128x1f303-google-android.png.pagespeed.ic.L7YwLMeyQP.png");
+           l.add ("http://emojipedia.org/wp-content/uploads/2013/07/160x160x290-crescent-moon.png.pagespeed.ic.nG2Dt0sVYn.jpg");
            break;
         case "question":
         case "questions":
