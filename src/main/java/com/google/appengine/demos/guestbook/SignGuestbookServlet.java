@@ -49,6 +49,8 @@ public class SignGuestbookServlet extends HttpServlet {
   public void doPost(HttpServletRequest req, HttpServletResponse resp)
       throws IOException {
 
+     log.info("start processing");
+   
     String feed;
     if (randInt (0,100) <= 5) {
        try {
@@ -73,10 +75,7 @@ public class SignGuestbookServlet extends HttpServlet {
     greeting.setProperty("date", date);
     greeting.setProperty("content", content);
 
-    log.info("some sample log");
-    log.severe("some sample severe  log");
-
-    log.info(Integer.toString(imageUrls2.length));
+   
 
     int i = 0;
     for (String s:  imageUrls2) {
@@ -93,6 +92,7 @@ public class SignGuestbookServlet extends HttpServlet {
 
 
     resp.sendRedirect("/guestbook.jsp?guestbookName=" + guestbookName);
+
   }
 
   public static String getTwitterFeed () {
