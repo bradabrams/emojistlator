@@ -3,3 +3,12 @@ body {
     background-color: #fff;
     text-align: center;
 }
+
+input[type=submit] {
+    border-radius: 5px;
+    border: 0;
+    height: 25px;
+    font-family: Tahoma;
+    font-weight: bold;
+    background: #f4f4f4;
+}

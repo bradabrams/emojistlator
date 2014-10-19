@@ -109,10 +109,11 @@
 
     <!-- TODO(athicha): Replace sign with translate -->
     <form action="/sign" method="post">
-        <div><textarea name="content" rows="3" cols="60"></textarea></div>
-        <div><input type="submit" value="Post Message to Convert to emoji"/>
+        <div>
+          <input type="text" name="content" style="font-size:15px; height:2em; width:500px;"/>
+          <input type="submit" value="Get Emoji!">
+          <input type="hidden" name="guestbookName" value="${fn:escapeXml(guestbookName)}"/>
         </div>
-        <input type="hidden" name="guestbookName" value="${fn:escapeXml(guestbookName)}"/>
     </form>
 
   </div>
