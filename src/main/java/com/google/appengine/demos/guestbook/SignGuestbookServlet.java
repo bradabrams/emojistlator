@@ -61,14 +61,15 @@ public class SignGuestbookServlet extends HttpServlet {
     User user = userService.getCurrentUser();
 
     String guestbookName = req.getParameter("guestbookName");
-    Key guestbookKey = KeyFactory.createKey("Guestbook", guestbookName);
+    Key guestbookKey = KeyFactory.createKey("Guestbook", "default");
+
     String content = req.getParameter("content");
     String imageUrls; 
 
     Date date = new Date();
     Entity greeting = new Entity("Greeting", guestbookKey);
     
-    String[] imageUrls2 = getImageUrls (content);
+    String[] imageUrls2 = getImageUrls(content);
     greeting.setProperty("user", user);
     greeting.setProperty("date", date);
     greeting.setProperty("content", content);
@@ -81,16 +82,12 @@ public class SignGuestbookServlet extends HttpServlet {
     int i = 0;
     for (String s:  imageUrls2) {
       String num = Integer.toString(i);
-      greeting.setProperty("imageUrls"+num,s); 
+      greeting.setProperty("imageUrls"+num, s); 
       i++;
     }
 
-
-
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(greeting);
-
-
 
     resp.sendRedirect("/guestbook.jsp?guestbookName=" + guestbookName);
   }
