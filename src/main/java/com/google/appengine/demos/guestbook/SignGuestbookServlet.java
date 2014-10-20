@@ -54,7 +54,7 @@ public class SignGuestbookServlet extends HttpServlet {
     String feed;
     if (randInt (0,100) <= 5) {
        try {
-          log.info("In Experiment for getting realated twitter feed");
+          log.info("In Experiment for getting related twitter feed");
           feed = getTwitterFeed();
        } catch(Exception e) { } 
     }
