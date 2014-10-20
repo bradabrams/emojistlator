@@ -170,13 +170,15 @@ public class SignGuestbookServlet extends HttpServlet {
 
      value = value.toLowerCase();
 
-    
+    /*
+    BUG: uncomment this code to fix the bug 
     value = value.replace ("?", " ?");
     value = value.replace ("!", " !");
     value = value.replace (".", " .");
     value = value.replace (",", " ,");
     value = value.replace ("\"", " \"");
-    
+    */
+
     return value;
 
   }
