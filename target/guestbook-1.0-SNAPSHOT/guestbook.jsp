@@ -22,6 +22,19 @@
 
 <body>
   <div>
+    <div>
+      <img src="/images/EmojiSlatorLogo.jpg">
+    </div>
+
+    <!-- TODO(athicha): Replace sign with translate -->
+    <form action="/sign" method="post">
+        <div>
+          <input type="text" name="content" style="font-size:15px; height:2em; width:500px;"/>
+          <input type="submit" value="Get Emoji!">
+          <input type="hidden" name="guestbookName" value="${fn:escapeXml(guestbookName)}"/>
+        </div>
+    </form>
+
     <!-- TODO(athicha): Take this out if not needed.
     <%
       String guestbookName = request.getParameter("guestbookName");
@@ -106,15 +119,6 @@
         } 
       }
     %>
-
-    <!-- TODO(athicha): Replace sign with translate -->
-    <form action="/sign" method="post">
-        <div>
-          <input type="text" name="content" style="font-size:15px; height:2em; width:500px;"/>
-          <input type="submit" value="Get Emoji!">
-          <input type="hidden" name="guestbookName" value="${fn:escapeXml(guestbookName)}"/>
-        </div>
-    </form>
 
   </div>
 
