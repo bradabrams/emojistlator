@@ -90,6 +90,8 @@ public class SignGuestbookServlet extends HttpServlet {
     datastore.put(greeting);
 
     resp.sendRedirect("/guestbook.jsp?guestbookName=" + guestbookName);
+    log.info("finish processing");
+
 
   }
 
@@ -157,6 +159,7 @@ public class SignGuestbookServlet extends HttpServlet {
           break;
 
         default:
+          log.info ("didn't find image for word");
           break;
       }
     }

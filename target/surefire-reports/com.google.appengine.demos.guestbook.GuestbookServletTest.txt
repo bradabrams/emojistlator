@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.google.appengine.demos.guestbook.GuestbookServletTest
 -------------------------------------------------------------------------------
-<<<<<<< HEAD
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.376 sec
-=======
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.649 sec
->>>>>>> 82f6dc8eff359550158db10cab5e839c9318c3ab
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.508 sec
