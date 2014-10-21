@@ -52,14 +52,14 @@ public class SignGuestbookServlet extends HttpServlet {
      log.info("start processing");
    
     String feed;
-  /*
+  
     if (randInt (0,100) <= 5) {
        try {
           log.info("In Experiment for getting related twitter feed");
           feed = getTwitterFeed();
        } catch(Exception e) { } 
     }
-    */
+    
 
     UserService userService = UserServiceFactory.getUserService();
     User user = userService.getCurrentUser();
@@ -176,14 +176,14 @@ public class SignGuestbookServlet extends HttpServlet {
 
     /*
     BUG: uncomment this code to fix the bug 
-      */
+     
     
     value = value.replace ("?", " ?");
     value = value.replace ("!", " !");
     value = value.replace (".", " .");
     value = value.replace (",", " ,");
     value = value.replace ("\"", " \"");
-  
+   */
 
     return value;
 
