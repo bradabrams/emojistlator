@@ -165,6 +165,7 @@ public class SignGuestbookServlet extends HttpServlet {
     }
     return (String[]) l.toArray(new String[0]);
   }
+  
 
   public static String canonicalize (String value) {
 
