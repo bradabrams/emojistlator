@@ -132,6 +132,7 @@ public class SignGuestbookServlet extends HttpServlet {
         case "to":
            break; // we don't need translations for these
         case "dog":
+        case "dogs":
           l.add ("http://emojipedia.org/wp-content/uploads/2013/07/160x160x192-dog-face.png.pagespeed.ic.CtTA9k9apv.jpg");
           break;
         case "happy":
@@ -144,6 +145,7 @@ public class SignGuestbookServlet extends HttpServlet {
           l.add ("http://emojipedia.org/wp-content/uploads/2014/04/128x128x1f48f-google-android.png.pagespeed.ic.vN74TXwtMP.png");
           break;
         case "drinks":
+        case "drink":
           l.add ("http://pix.iemoji.com/sbemojix2/0315.png");
           break;
         case "city":
