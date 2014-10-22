@@ -27,6 +27,12 @@
     </div>
 
     <% 
+      String guestbookName = request.getParameter("guestbookName");
+      if (guestbookName == null) {
+          guestbookName = "default";
+      }
+      pageContext.setAttribute("guestbookName", guestbookName);
+
       DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
       Key guestbookKey = KeyFactory.createKey("Guestbook", guestbookName);
       // Run an ancestor query to ensure we see the most up-to-date
@@ -39,7 +45,7 @@
         Entity greeting = greetings.get(0);
         pageContext.setAttribute("greeting_content",
                 greeting.getProperty("content"));
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 10; i++){
            String num = Integer.toString (i);
            pageContext.setAttribute("greeting_imageUrls"+num,
                greeting.getProperty("imageUrls"+num));
@@ -51,7 +57,7 @@
     <form action="/sign" method="post">
         <div>
           <input type="text" name="content" style="font-size:15px; height:2em; width:500px;"/>
-          <input type="submit" value="Translate!">
+          <input type="submit" value="Get Emoji!">
           <input type="hidden" name="guestbookName" value="${fn:escapeXml(guestbookName)}"/>
         </div>
     </form>

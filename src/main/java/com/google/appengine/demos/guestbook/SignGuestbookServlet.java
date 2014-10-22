@@ -39,6 +39,7 @@ import java.net.URL;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class SignGuestbookServlet extends HttpServlet {
 
@@ -88,11 +89,12 @@ public class SignGuestbookServlet extends HttpServlet {
 
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(greeting);
-
+/*
+    PrintWriter out = resp.getWriter();
+    out.println("hello athicha");
+*/    
     resp.sendRedirect("/guestbook.jsp?guestbookName=" + guestbookName);
     log.info("finish processing");
-
-
   }
 
   public static String getTwitterFeed () {

@@ -36,7 +36,6 @@ public class GuestbookServlet extends HttpServlet {
       resp.getWriter().println("Hello, this is a testing servlet. \n\n");
       Properties p = System.getProperties();
       p.list(resp.getWriter());
-      // Athicha added comment here.
     } else {
       UserService userService = UserServiceFactory.getUserService();
       User currentUser = userService.getCurrentUser();

@@ -26,32 +26,13 @@
       <img src="/images/EmojiSlatorLogo.jpg" width="35%">
     </div>
 
-    <!-- TODO(athicha): Take this out if not needed.
-    <%
+    <% 
       String guestbookName = request.getParameter("guestbookName");
       if (guestbookName == null) {
           guestbookName = "default";
       }
       pageContext.setAttribute("guestbookName", guestbookName);
-      
-      UserService userService = UserServiceFactory.getUserService();
-      User user = userService.getCurrentUser();
-      if (user != null) {
-        pageContext.setAttribute("user", user);
-      %>
-      <p>Hello, ${fn:escapeXml(user.nickname)}! (You can
-          <a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">sign out</a>.)</p>
-      <%
-      } else {
-      %>
-      <p>Hello!
-          <a href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a>
-          to include your name with your emoji.</p>
-      <%
-      }
-    %>
-    -->
-    <% 
+
       DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
       Key guestbookKey = KeyFactory.createKey("Guestbook", guestbookName);
       // Run an ancestor query to ensure we see the most up-to-date
