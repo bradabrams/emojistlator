@@ -26,31 +26,6 @@
       <img src="/images/EmojiSlatorLogo.jpg" width="35%">
     </div>
 
-    <!-- TODO(athicha): Take this out if not needed.
-    <%
-      String guestbookName = request.getParameter("guestbookName");
-      if (guestbookName == null) {
-          guestbookName = "default";
-      }
-      pageContext.setAttribute("guestbookName", guestbookName);
-      
-      UserService userService = UserServiceFactory.getUserService();
-      User user = userService.getCurrentUser();
-      if (user != null) {
-        pageContext.setAttribute("user", user);
-      %>
-      <p>Hello, ${fn:escapeXml(user.nickname)}! (You can
-          <a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">sign out</a>.)</p>
-      <%
-      } else {
-      %>
-      <p>Hello!
-          <a href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a>
-          to include your name with your emoji.</p>
-      <%
-      }
-    %>
-    -->
     <% 
       DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
       Key guestbookKey = KeyFactory.createKey("Guestbook", guestbookName);
@@ -64,7 +39,7 @@
         Entity greeting = greetings.get(0);
         pageContext.setAttribute("greeting_content",
                 greeting.getProperty("content"));
-        for (int i = 0; i < 10; i++){
+        for (int i = 0; i < 10; i++) {
            String num = Integer.toString (i);
            pageContext.setAttribute("greeting_imageUrls"+num,
                greeting.getProperty("imageUrls"+num));
@@ -76,7 +51,7 @@
     <form action="/sign" method="post">
         <div>
           <input type="text" name="content" style="font-size:15px; height:2em; width:500px;"/>
-          <input type="submit" value="Get Emoji!">
+          <input type="submit" value="Translate!">
           <input type="hidden" name="guestbookName" value="${fn:escapeXml(guestbookName)}"/>
         </div>
     </form>

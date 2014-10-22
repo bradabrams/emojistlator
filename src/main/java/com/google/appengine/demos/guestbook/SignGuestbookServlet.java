@@ -49,7 +49,7 @@ public class SignGuestbookServlet extends HttpServlet {
   public void doPost(HttpServletRequest req, HttpServletResponse resp)
       throws IOException {
 
-     log.info("start processing");
+    log.info("start processing");
    
     String feed;
   
@@ -68,7 +68,6 @@ public class SignGuestbookServlet extends HttpServlet {
     Key guestbookKey = KeyFactory.createKey("Guestbook", "default");
 
     String content = req.getParameter("content");
-    String imageUrls; 
 
     Date date = new Date();
     Entity greeting = new Entity("Greeting", guestbookKey);
@@ -81,7 +80,7 @@ public class SignGuestbookServlet extends HttpServlet {
    
 
     int i = 0;
-    for (String s:  imageUrls2) {
+    for (String s: imageUrls2) {
       String num = Integer.toString(i);
       greeting.setProperty("imageUrls"+num, s); 
       i++;
