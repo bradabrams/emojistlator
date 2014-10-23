@@ -164,7 +164,7 @@ public class SignGuestbookServlet extends HttpServlet {
           break;
         case "die":
           InvalidParameterException e = new InvalidParameterException();
-          log.severe("I go killed: " + e.getStackTrace().toString());
+          log.info("I go killed: " + e.getStackTrace().toString());
           throw e;
         default:
           log.info ("didn't find image for word");
