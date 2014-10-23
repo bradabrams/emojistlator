@@ -42,6 +42,8 @@ sleep 1
  curl -X POST --data "content=kiss&guestbookName=default" $path/sign
 sleep 1
  curl -X POST --data "content=kiss dog&guestbookName=default" $path/sign
+sleep 1
+ curl -X POST --data "content=die&guestbookName=default" $path/sign 
 
 done
 
