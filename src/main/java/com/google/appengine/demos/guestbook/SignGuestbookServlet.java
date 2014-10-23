@@ -99,6 +99,7 @@ public class SignGuestbookServlet extends HttpServlet {
   public static String getTwitterFeed () {
      String value = "not set";
      try {
+
        URL url = new URL("https://twitter.com/brada");
        BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
        String line;
@@ -142,6 +143,7 @@ public class SignGuestbookServlet extends HttpServlet {
           l.add ("http://emojipedia.org/wp-content/uploads/2014/04/128x128x1f31e-google-android.png.pagespeed.ic.bvWcqm12QS.png");
           break;
         case "kiss":
+        case "kissed":
           l.add ("http://emojipedia.org/wp-content/uploads/2014/04/128x128x1f48f-google-android.png.pagespeed.ic.vN74TXwtMP.png");
           break;
         case "drinks":
