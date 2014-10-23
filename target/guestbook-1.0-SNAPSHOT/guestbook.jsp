@@ -12,6 +12,7 @@
 <%@ page import="com.google.appengine.api.datastore.PreparedQuery" %>
 <%@ page import="com.google.appengine.api.datastore.QueryResultIterator" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.Date" %>
 <%@ page import="java.util.List" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
@@ -27,42 +28,44 @@
     </div>
 
     <% 
-      String guestbookName = request.getParameter("guestbookName");
-      if (guestbookName == null) {
-          guestbookName = "default";
-      }
-      pageContext.setAttribute("guestbookName", guestbookName);
+      //Object requestId = pageContext.getAttribute("guestbookName");
+      String requestId = "athicha";
+      pageContext.setAttribute("guestbookName", requestId);
 
-      DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-      Key guestbookKey = KeyFactory.createKey("Guestbook", guestbookName);
-      // Run an ancestor query to ensure we see the most up-to-date
-      // view of the Greetings belonging to the selected Guestbook.
-      Query query = new Query("Greeting", guestbookKey)
-          .addSort("date", Query.SortDirection.DESCENDING);
-      List<Entity> greetings = datastore.prepare(query)
-          .asList(FetchOptions.Builder.withLimit(5));
-      if (!greetings.isEmpty()) {
-        Entity greeting = greetings.get(0);
-        pageContext.setAttribute("greeting_content",
-                greeting.getProperty("content"));
-        for (int i = 0; i < 10; i++){
-           String num = Integer.toString (i);
-           pageContext.setAttribute("greeting_imageUrls"+num,
-               greeting.getProperty("imageUrls"+num));
+      if (requestId != null) {
+        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+        Key guestbookKey = KeyFactory.createKey("Guestbook", requestId);
+        
+        Query query = new Query("Greeting", guestbookKey)
+            .addSort("date", Query.SortDirection.DESCENDING);
+        List<Entity> greetings = datastore.prepare(query)
+            .asList(FetchOptions.Builder.withLimit(5));
+        if (!greetings.isEmpty()) {
+          Entity greeting = greetings.get(0);
+          pageContext.setAttribute("input_text",
+                  greeting.getProperty("content"));
+          for (int i = 0; i < 10; i++){
+             String num = Integer.toString (i);
+             pageContext.setAttribute("greeting_imageUrls"+num,
+                 greeting.getProperty("imageUrls"+num));
+          }
         }
       }
+      //Date date = new Date();
+      //String newRequestId = Long.toString(date.getTime());
+      //pageContext.setAttribute("guestbookName", newRequestId);
     %>
     
     <!-- TODO(athicha): Replace sign with translate -->
     <form action="/sign" method="post">
         <div>
           <input type="text" name="content" style="font-size:15px; height:2em; width:500px;"/>
-          <input type="submit" value="Get Emoji!">
+          <input type="submit" value="Translate">
           <input type="hidden" name="guestbookName" value="${fn:escapeXml(guestbookName)}"/>
         </div>
     </form>
 
-    <blockquote>${fn:escapeXml(greeting_content)} =
+    <blockquote>${fn:escapeXml(input_text)} =
        <image src=${greeting_imageUrls0}></image> 
        <image src=${greeting_imageUrls1}></image> 
        <image src=${greeting_imageUrls2}></image> 

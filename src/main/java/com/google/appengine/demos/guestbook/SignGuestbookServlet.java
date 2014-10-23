@@ -43,7 +43,7 @@ import java.io.PrintWriter;
 
 public class SignGuestbookServlet extends HttpServlet {
 
-    private static final Logger log = Logger.getLogger(SignGuestbookServlet.class.getName());
+  private static final Logger log = Logger.getLogger(SignGuestbookServlet.class.getName());
 
 
   @Override
@@ -66,7 +66,8 @@ public class SignGuestbookServlet extends HttpServlet {
     User user = userService.getCurrentUser();
 
     String guestbookName = req.getParameter("guestbookName");
-    Key guestbookKey = KeyFactory.createKey("Guestbook", "default");
+    log.info("storing key " + guestbookName);
+    Key guestbookKey = KeyFactory.createKey("Guestbook", guestbookName);
 
     String content = req.getParameter("content");
 
@@ -89,10 +90,7 @@ public class SignGuestbookServlet extends HttpServlet {
 
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(greeting);
-/*
-    PrintWriter out = resp.getWriter();
-    out.println("hello athicha");
-*/    
+
     resp.sendRedirect("/guestbook.jsp?guestbookName=" + guestbookName);
     log.info("finish processing");
   }
