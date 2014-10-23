@@ -40,6 +40,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.InvalidParameterException;
 
 public class SignGuestbookServlet extends HttpServlet {
 
@@ -159,10 +160,10 @@ public class SignGuestbookServlet extends HttpServlet {
         case "?":
           l.add ("http://emojipedia.org/wp-content/uploads/2013/08/160x160xwhite-question-mark-ornament.png.pagespeed.ic.fU4MuC4p7q.png");
           break;
-
+        case "die":
+          throw new InvalidParameterException();
         default:
           log.info ("didn't find image for word");
-          break;
       }
     }
     return (String[]) l.toArray(new String[0]);
