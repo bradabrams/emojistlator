@@ -7,7 +7,7 @@
     <module>default</module>
     <vm>true</vm>
     <manual-scaling>
-        <instances>10</instances>
+        <instances>1</instances>
     </manual-scaling>
 
    <env-variables>
