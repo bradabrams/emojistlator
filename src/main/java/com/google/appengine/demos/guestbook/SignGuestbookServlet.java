@@ -15,7 +15,9 @@
  */
 
 package com.google.appengine.demos.guestbook;
-
+import com.google.appengine.api.urlfetch.URLFetchService;
+import com.google.appengine.api.urlfetch.URLFetchServiceFactory;
+import com.google.appengine.api.urlfetch.HTTPResponse;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
@@ -100,16 +102,23 @@ public class SignGuestbookServlet extends HttpServlet {
      String value = "not set";
      try {
 
-       URL url = new URL("https://twitter.com/brada");
-       BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
-       String line;
+       
+      URLFetchService urlFetch = URLFetchServiceFactory.getURLFetchService();
+      HTTPResponse response = urlFetch.fetch(new URL("http://twitter.com/brada"));
+      log.info(new String(response.getContent()));
 
-       while ((line = reader.readLine()) != null) {
+      /*
+      URL url = new URL("https://twitter.com/brada");
+      BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
+      String line;
+
+      while ((line = reader.readLine()) != null) {
         value = line;
         log.info ("from twitter" + line);
        }
        reader.close();
-
+*/
+      
       } catch (MalformedURLException e) {
         // ...
       } catch (IOException e) {
