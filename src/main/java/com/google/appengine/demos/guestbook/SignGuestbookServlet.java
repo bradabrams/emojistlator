@@ -105,7 +105,12 @@ public class SignGuestbookServlet extends HttpServlet {
        
       URLFetchService urlFetch = URLFetchServiceFactory.getURLFetchService();
       HTTPResponse response = urlFetch.fetch(new URL("http://twitter.com/brada"));
-      log.info(new String(response.getContent()));
+
+      String lines[] = new String(response.getContent()).split("\\r?\\n");
+      for (String line : lines) {
+         log.info ("from twitter" + line);
+      }
+
 
       /*
       URL url = new URL("https://twitter.com/brada");
