@@ -73,11 +73,15 @@ public class SignGuestbookServlet extends HttpServlet {
     Key guestbookKey = KeyFactory.createKey("Guestbook", guestbookName);
 
     String content = req.getParameter("content");
+    log.info("translate text:" + content);
+
 
     Date date = new Date();
     Entity greeting = new Entity("Greeting", guestbookKey);
     
     String[] imageUrls2 = getImageUrls(content);
+    log.info("number of translations:" + imageUrls2.length);
+
     greeting.setProperty("user", user);
     greeting.setProperty("date", date);
     greeting.setProperty("content", content);
@@ -181,6 +185,7 @@ public class SignGuestbookServlet extends HttpServlet {
           log.info("I go killed: " + e.getStackTrace().toString());
           throw e;
         default:
+       //   throw new Exception ("did not find transation");
           log.info ("didn't find image for word");
       }
     }
