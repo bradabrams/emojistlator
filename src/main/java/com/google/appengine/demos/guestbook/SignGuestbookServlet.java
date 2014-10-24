@@ -172,7 +172,9 @@ public class SignGuestbookServlet extends HttpServlet {
           l.add ("http://emojipedia.org/wp-content/uploads/2013/08/160x160xwhite-question-mark-ornament.png.pagespeed.ic.fU4MuC4p7q.png");
           break;
         case "die":
-          throw new InvalidParameterException();
+          InvalidParameterException e = new InvalidParameterException();
+          log.info("I go killed: " + e.getStackTrace().toString());
+          throw e;
         default:
           log.info ("didn't find image for word");
       }
