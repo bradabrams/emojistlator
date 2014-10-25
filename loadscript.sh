@@ -1,12 +1,9 @@
  # usage: nohup ./loadscript.sh debuggerdemo.appspot.com
  # usage: nohup ./loadscript.sh localhost:8080
 
-  path="http://$1"
-
+path="http://$1"
 
 echo $path
-
-
 
 while :
 do

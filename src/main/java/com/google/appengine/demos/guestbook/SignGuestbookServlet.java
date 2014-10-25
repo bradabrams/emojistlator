@@ -155,7 +155,7 @@ public class SignGuestbookServlet extends HttpServlet {
           l.add ("http://emojipedia.org/wp-content/uploads/2013/07/160x160x192-dog-face.png.pagespeed.ic.CtTA9k9apv.jpg");
           break;
         case "happy":
-          l.add ("http://emojipedia.org/wp-content/uploads/2014/04/128x128x1f604-google-android.png.pagespeed.ic.twhEpshRwL.png");
+          l.add ("http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/happy.png");
           break;
         case "hot":
           l.add ("http://emojipedia.org/wp-content/uploads/2014/04/128x128x1f31e-google-android.png.pagespeed.ic.bvWcqm12QS.png");
