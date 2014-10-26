@@ -189,6 +189,9 @@ public class SignGuestbookServlet extends HttpServlet {
           log.info ("didn't find image for word");
       }
     }
+    while (l.size() < 10) {
+      l.add ("http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/blank.png");
+    }
     return (String[]) l.toArray(new String[0]);
   }
   
