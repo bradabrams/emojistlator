@@ -66,16 +66,16 @@
     </form>
 
     <blockquote>${fn:escapeXml(input_text)} =
-       <image src=${greeting_imageUrls0} height="42"></image> 
-       <image src=${greeting_imageUrls1} height="42"></image> 
-       <image src=${greeting_imageUrls2} height="42"></image> 
-       <image src=${greeting_imageUrls3} height="42"></image> 
-       <image src=${greeting_imageUrls4} height="42"></image> 
-       <image src=${greeting_imageUrls5} height="42"></image> 
-       <image src=${greeting_imageUrls6} height="42"></image> 
-       <image src=${greeting_imageUrls7} height="42"></image> 
-       <image src=${greeting_imageUrls8} height="42"></image> 
-       <image src=${greeting_imageUrls9} height="42"></image> 
+       <image src=${greeting_imageUrls0} height="200"></image> 
+       <image src=${greeting_imageUrls1} height="200"></image> 
+       <image src=${greeting_imageUrls2} height="200"></image> 
+       <image src=${greeting_imageUrls3} height="200"></image> 
+       <image src=${greeting_imageUrls4} height="200"></image> 
+       <image src=${greeting_imageUrls5} height="200"></image> 
+       <image src=${greeting_imageUrls6} height="200"></image> 
+       <image src=${greeting_imageUrls7} height="200"></image> 
+       <image src=${greeting_imageUrls8} height="200"></image> 
+       <image src=${greeting_imageUrls9} height="200"></image> 
     </blockquote>
 
   </div>
