@@ -152,33 +152,33 @@ public class SignGuestbookServlet extends HttpServlet {
            break; // we don't need translations for these
         case "dog":
         case "dogs":
-          l.add ("http://emojipedia.org/wp-content/uploads/2013/07/160x160x192-dog-face.png.pagespeed.ic.CtTA9k9apv.jpg");
+          l.add ("http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/dog.jpg");
           break;
         case "happy":
           l.add ("http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/happy.png");
           break;
         case "hot":
-          l.add ("http://emojipedia.org/wp-content/uploads/2014/04/128x128x1f31e-google-android.png.pagespeed.ic.bvWcqm12QS.png");
+          l.add ("http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/sun.jpg");
           break;
         case "kiss":
         case "kissed":
-          l.add ("http://emojipedia.org/wp-content/uploads/2014/04/128x128x1f48f-google-android.png.pagespeed.ic.vN74TXwtMP.png");
+          l.add ("http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/kiss.jpg");
           break;
         case "drinks":
         case "drink":
-          l.add ("http://pix.iemoji.com/sbemojix2/0315.png");
+          l.add ("http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/cocktail.jpg");
           break;
         case "city":
-          l.add ("http://pix.iemoji.com/sbemojix2/0390.png");
+          l.add ("http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/OfficeBuilding.png");
           break;
         case "tonight":
         case "night":
-           l.add ("http://emojipedia.org/wp-content/uploads/2013/07/160x160x290-crescent-moon.png.pagespeed.ic.nG2Dt0sVYn.jpg");
+           l.add ("http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/night_moon.jpg");
            break;
         case "question":
         case "questions":
         case "?":
-          l.add ("http://emojipedia.org/wp-content/uploads/2013/08/160x160xwhite-question-mark-ornament.png.pagespeed.ic.fU4MuC4p7q.png");
+          l.add ("http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/QuestionMark.jpg");
           break;
         case "die":
           InvalidParameterException e = new InvalidParameterException();
