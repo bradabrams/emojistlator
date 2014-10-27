@@ -12,7 +12,7 @@
 
    <env-variables>
       <!-- bma: this is need for the cloud debubger  -->      
-      <env-var name="CDBG_ENABLE" value="1" />
+      <!--env-var name="CDBG_ENABLE" value="1" /-->
    </env-variables>
 
     <system-properties>

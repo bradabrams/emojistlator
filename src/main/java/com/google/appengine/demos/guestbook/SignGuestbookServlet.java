@@ -15,6 +15,7 @@
  */
 
 package com.google.appengine.demos.guestbook;
+
 import com.google.appengine.api.urlfetch.URLFetchService;
 import com.google.appengine.api.urlfetch.URLFetchServiceFactory;
 import com.google.appengine.api.urlfetch.HTTPResponse;
@@ -79,7 +80,15 @@ public class SignGuestbookServlet extends HttpServlet {
     Date date = new Date();
     Entity greeting = new Entity("Greeting", guestbookKey);
     
-    String[] imageUrls2 = getImageUrls(content);
+    String[] imageUrls2 = null;
+    try {
+      imageUrls2 = getImageUrls(content);
+    } catch (Exception e) {
+      log.severe("Something bad happened!");
+      e.printStackTrace();
+      throw e;
+    }
+
     log.info("number of translations:" + imageUrls2.length);
 
     greeting.setProperty("user", user);
@@ -182,7 +191,7 @@ public class SignGuestbookServlet extends HttpServlet {
           break;
         case "die":
           InvalidParameterException e = new InvalidParameterException();
-          log.info("I go killed: " + e.getStackTrace().toString());
+          //log.info("I go killed: " + e.getStackTrace().toString());
           throw e;
         default:
        //   throw new Exception ("did not find transation");
