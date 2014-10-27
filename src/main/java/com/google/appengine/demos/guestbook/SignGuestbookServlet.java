@@ -186,6 +186,28 @@ public class SignGuestbookServlet extends HttpServlet {
         case "night":
            l.add ("http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/night_moon.jpg");
            break;
+        case "wowed":
+        case "wow":
+           l.add ("http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/wowed.jpg");
+           break;
+        case "worry":
+        case "worried":
+           l.add ("http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/worried.jpg");
+           break;
+        case "surprised":
+           l.add ("http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/surprised.jpg");
+           break;
+        case "sad":
+           l.add ("http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/sad.jpg");
+           break;
+        case "mad":
+           l.add ("http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/mad.jpg");
+           break;
+        case "surprise":
+        case "surprised":
+           l.add ("http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/surprised.jpg");
+           break;        
+
         case "question":
         case "questions":
         case "?":
