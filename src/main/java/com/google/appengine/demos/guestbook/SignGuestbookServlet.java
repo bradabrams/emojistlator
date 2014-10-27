@@ -84,8 +84,9 @@ public class SignGuestbookServlet extends HttpServlet {
     try {
       imageUrls2 = getImageUrls(content);
     } catch (Exception e) {
-      log.severe("Something bad happened!");
-      e.printStackTrace();
+      StringWriter errors = new StringWriter();
+      e.printStackTrace(new PrintWriter(errors));
+      log.severe("Something bad happened!" + errors.toString());
       throw e;
     }
 
@@ -191,7 +192,6 @@ public class SignGuestbookServlet extends HttpServlet {
           break;
         case "die":
           InvalidParameterException e = new InvalidParameterException();
-          //log.info("I go killed: " + e.getStackTrace().toString());
           throw e;
         default:
        //   throw new Exception ("did not find transation");
