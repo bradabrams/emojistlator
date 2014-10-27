@@ -84,7 +84,7 @@
     </blockquote>
 
   </div>
-  <code>limited vocabulary: dog, happy, hot, kiss, drink, city, night, question</code>
+  <code>limited vocabulary: sad, mad, wow, surprise, worried, dog, happy, hot, kiss, drink, city, night, question</code>
 
 </body>
 </html>

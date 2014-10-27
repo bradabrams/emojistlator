@@ -194,9 +194,6 @@ public class SignGuestbookServlet extends HttpServlet {
         case "worried":
            l.add ("http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/worried.jpg");
            break;
-        case "surprised":
-           l.add ("http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/surprised.jpg");
-           break;
         case "sad":
            l.add ("http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/sad.jpg");
            break;
