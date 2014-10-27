@@ -31,6 +31,11 @@
       //Object requestId = pageContext.getAttribute("guestbookName");
       String requestId = "athicha";
       pageContext.setAttribute("guestbookName", requestId);
+      for (int i = 0; i < 10; i++){
+             String num = Integer.toString (i);
+             pageContext.setAttribute("greeting_imageUrls"+num,
+                 "http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/blank.png");
+      }
 
       if (requestId != null) {
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
@@ -77,9 +82,9 @@
        <image src=${greeting_imageUrls8} height="200"></image> 
        <image src=${greeting_imageUrls9} height="200"></image> 
     </blockquote>
-<code>limited vocabulary: dog, happy, hot, kiss, drink, city, night, question</code>
 
   </div>
+  <code>limited vocabulary: dog, happy, hot, kiss, drink, city, night, question</code>
 
 </body>
 </html>

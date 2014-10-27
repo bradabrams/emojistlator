@@ -12,6 +12,6 @@
 hs_err_pid*
 
 # maven build artifacts 
-target/*
+target
 
 
