@@ -228,15 +228,17 @@ public class SignGuestbookServlet extends HttpServlet {
   public static String canonicalize (String value) {
 
      value = value.toLowerCase();
+     value = value.replace (",", " ,");
+
 
     /*
     BUG: uncomment this code to fix the bug 
+     
      
     
     value = value.replace ("?", " ?");
     value = value.replace ("!", " !");
     value = value.replace (".", " .");
-    value = value.replace (",", " ,");
     value = value.replace ("\"", " \"");
    */
 
