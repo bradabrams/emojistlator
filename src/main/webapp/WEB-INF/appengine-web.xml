@@ -21,6 +21,6 @@
 
     <!-- TODO(athicha): Try again later -->
     <!--vm-settings>
-      <setting name="apt_get_install" value="mongodb-org"/>
+      <setting name="apt_get_install" value="redis-server"/>
     </vm-settings-->
 </appengine-web-app>
