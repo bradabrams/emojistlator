@@ -21,6 +21,6 @@
 
     <!-- TODO(athicha): Try again later -->
     <!--vm-settings>
-      <setting name="apt_get_install" value="redis-server"/>
+      <setting name="apt_get_install" value="redis-server vim"/>
     </vm-settings-->
 </appengine-web-app>
