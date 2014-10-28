@@ -18,4 +18,8 @@
     <system-properties>
         <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
     </system-properties>
+
+    <vm-settings>
+      <setting name="apt_get_install" value="redis-server mongodb-org"/>
+    </vm-settings>
 </appengine-web-app>
