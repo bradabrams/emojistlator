@@ -60,7 +60,7 @@ public class SignGuestbookServlet extends HttpServlet {
     String feed;
    
    /* Bug# 2 (Trace) 
-   */
+   
    
     if (randInt (0,100) <= 5) {
        try {
@@ -68,6 +68,7 @@ public class SignGuestbookServlet extends HttpServlet {
           feed = getTwitterFeed();
        } catch(Exception e) { } 
     }
+    */
    
 
     UserService userService = UserServiceFactory.getUserService();
