@@ -202,10 +202,15 @@ public class SignGuestbookServlet extends HttpServlet {
         case "?":
           l.add ("http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/QuestionMark.jpg");
           break;
+        case "die":
+           // Bug #1: Exception in Logs 
+           throw new Exception ("ha!  die, get it?");
+          break;
+       
         default:
-        // Bug #1: Exception in Logs 
-           throw new Exception ("did not find transation");
-           //log.info ("didn't find image for word");
+           log.info ("didn't find image for word");
+
+      
       }
     }
     while (l.size() < 10) {

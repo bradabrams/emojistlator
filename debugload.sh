@@ -8,7 +8,7 @@ echo $path
 
 while :
 do
-   curl -X POST --data "content=tonight?&guestbookName=default" $path/sign
+   curl -X POST --data "content=tonight" $path/sign
    sleep 1
 done
 
