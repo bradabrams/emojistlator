@@ -59,7 +59,7 @@ public class SignGuestbookServlet extends HttpServlet {
    
     String feed;
    
-   /* Bug# 2 (Trace) 
+   /* Bug# 2 (Trace)  */
    
    
     if (randInt (0,100) <= 5) {
@@ -68,7 +68,7 @@ public class SignGuestbookServlet extends HttpServlet {
           feed = getTwitterFeed();
        } catch(Exception e) { } 
     }
-    */
+    
    
 
     UserService userService = UserServiceFactory.getUserService();
@@ -204,8 +204,8 @@ public class SignGuestbookServlet extends HttpServlet {
           break;
         default:
         // Bug #1: Exception in Logs 
-           //throw new Exception ("did not find transation");
-           log.info ("didn't find image for word");
+           throw new Exception ("did not find transation");
+           //log.info ("didn't find image for word");
       }
     }
     while (l.size() < 10) {
@@ -224,13 +224,14 @@ public class SignGuestbookServlet extends HttpServlet {
     /*
     BUG #3: Debuger uncomment this code to fix the bug 
     
-  */
+  
 
     
     value = value.replace ("?", " ?");
     value = value.replace ("!", " !");
     value = value.replace (".", " .");
     value = value.replace ("\"", " \"");
+    */
   
     return value;
 
