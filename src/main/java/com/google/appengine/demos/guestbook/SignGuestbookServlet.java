@@ -204,8 +204,8 @@ public class SignGuestbookServlet extends HttpServlet {
           break;
         default:
         // Bug #1: Exception in Logs 
-           throw new Exception ("did not find transation");
-        //   log.info ("didn't find image for word");
+           //throw new Exception ("did not find transation");
+           log.info ("didn't find image for word");
       }
     }
     while (l.size() < 10) {
@@ -224,14 +224,14 @@ public class SignGuestbookServlet extends HttpServlet {
     /*
     BUG #3: Debuger uncomment this code to fix the bug 
     
+  */
 
     
     value = value.replace ("?", " ?");
     value = value.replace ("!", " !");
     value = value.replace (".", " .");
     value = value.replace ("\"", " \"");
-    */
-
+  
     return value;
 
   }
