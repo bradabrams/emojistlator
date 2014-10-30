@@ -10,6 +10,8 @@ while :
 do
    curl -X POST --data "content=die&guestbookName=default" $path/sign
    sleep 1
+   curl -X POST --data "content=tonight?&guestbookName=default" $path/sign
+   sleep 1
    curl -X POST --data "content=kiss&guestbookName=default" $path/sign
    sleep 1
    curl -X POST --data "content=my dog drinks&guestbookName=default" $path/sign
