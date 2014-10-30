@@ -58,14 +58,16 @@ public class SignGuestbookServlet extends HttpServlet {
     log.info("start processing");
    
     String feed;
-  
+   
+   /* Bug# 2 (Trace) 
+
     if (randInt (0,100) <= 5) {
        try {
           log.info("In Experiment for getting related twitter feed");
           feed = getTwitterFeed();
        } catch(Exception e) { } 
     }
-    
+    */
 
     UserService userService = UserServiceFactory.getUserService();
     User user = userService.getCurrentUser();
@@ -126,18 +128,6 @@ public class SignGuestbookServlet extends HttpServlet {
          log.info ("from twitter" + line);
       }
 
-
-      /*
-      URL url = new URL("https://twitter.com/brada");
-      BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
-      String line;
-
-      while ((line = reader.readLine()) != null) {
-        value = line;
-        log.info ("from twitter" + line);
-       }
-       reader.close();
-*/
       
       } catch (MalformedURLException e) {
         // ...
@@ -210,11 +200,9 @@ public class SignGuestbookServlet extends HttpServlet {
         case "?":
           l.add ("http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/QuestionMark.jpg");
           break;
-        case "die":
-          InvalidParameterException e = new InvalidParameterException();
-          throw e;
         default:
-       //   throw new Exception ("did not find transation");
+        // Bug #1: Exception in Logs 
+        //   throw new Exception ("did not find transation");
           log.info ("didn't find image for word");
       }
     }
@@ -232,15 +220,15 @@ public class SignGuestbookServlet extends HttpServlet {
 
 
     /*
-    BUG: uncomment this code to fix the bug 
-     
-     
+    BUG #3: Debuger uncomment this code to fix the bug 
+     */
+
     
     value = value.replace ("?", " ?");
     value = value.replace ("!", " !");
     value = value.replace (".", " .");
     value = value.replace ("\"", " \"");
-   */
+   
 
     return value;
 
