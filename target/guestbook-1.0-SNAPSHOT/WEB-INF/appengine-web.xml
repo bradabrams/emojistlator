@@ -12,14 +12,15 @@
 
    <env-variables>
       <!-- bma: this is need for the cloud debubger  -->      
-      <!--env-var name="CDBG_ENABLE" value="1" /-->
+      <env-var name="CDBG_ENABLE" value="1" />
    </env-variables>
 
     <system-properties>
         <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
     </system-properties>
 
-    <vm-settings>
-      <setting name="apt_get_install" value="redis-server mongodb-org"/>
-    </vm-settings>
+    <!-- TODO(athicha): Try again later -->
+    <!--vm-settings>
+      <setting name="apt_get_install" value="redis-server vim"/>
+    </vm-settings-->
 </appengine-web-app>

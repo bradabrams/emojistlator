@@ -91,7 +91,7 @@ public class SignGuestbookServlet extends HttpServlet {
       StringWriter errors = new StringWriter();
       e.printStackTrace(new PrintWriter(errors));
       log.severe("Something bad happened!" + errors.toString());
-      throw e;
+     // throw e;
     }
 
     log.info("number of translations:" + imageUrls2.length);
@@ -138,7 +138,7 @@ public class SignGuestbookServlet extends HttpServlet {
     return value;
   }
 
-  public String[] getImageUrls (String content) {
+  public String[] getImageUrls (String content) throws Exception {
     String temp = "";
     java.util.ArrayList l = new java.util.ArrayList ();
    
