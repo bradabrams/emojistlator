@@ -88,6 +88,7 @@ public class SignGuestbookServlet extends HttpServlet {
     String[] imageUrls2 = null;
     try {
       imageUrls2 = getImageUrls(content);
+      log.info("number of translations:" + imageUrls2.length);
     } catch (Exception e) {
       StringWriter errors = new StringWriter();
       e.printStackTrace(new PrintWriter(errors));
@@ -95,7 +96,6 @@ public class SignGuestbookServlet extends HttpServlet {
      // throw e;
     }
 
-    log.info("number of translations:" + imageUrls2.length);
 
     greeting.setProperty("user", user);
     greeting.setProperty("date", date);
