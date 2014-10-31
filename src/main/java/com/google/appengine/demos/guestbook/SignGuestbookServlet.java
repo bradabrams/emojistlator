@@ -84,10 +84,9 @@ public class SignGuestbookServlet extends HttpServlet {
 
     //Get the content to translate 
     String content = req.getParameter("content");
-
-
-
     Date date = new Date();
+    
+
     Entity greeting = new Entity("Greeting", guestbookKey);
     
     String[] imageUrls2 = null;
@@ -125,27 +124,6 @@ public class SignGuestbookServlet extends HttpServlet {
     log.info("finish processing");
   }
 
-  public static String getTwitterFeed () {
-     String value = "not set";
-     try {
-
-       
-      URLFetchService urlFetch = URLFetchServiceFactory.getURLFetchService();
-      HTTPResponse response = urlFetch.fetch(new URL("http://twitter.com/brada"));
-
-      String lines[] = new String(response.getContent()).split("\\r?\\n");
-      for (String line : lines) {
-         log.info ("from twitter" + line);
-      }
-
-      
-      } catch (MalformedURLException e) {
-        // ...
-      } catch (IOException e) {
-       // ...
-    }
-    return value;
-  }
 
   public String[] getImageUrls (String content) throws Exception {
     String temp = "";
@@ -248,6 +226,29 @@ public class SignGuestbookServlet extends HttpServlet {
   
     return value;
 
+  }
+
+
+  public static String getTwitterFeed () {
+     String value = "not set";
+     try {
+
+       
+      URLFetchService urlFetch = URLFetchServiceFactory.getURLFetchService();
+      HTTPResponse response = urlFetch.fetch(new URL("http://twitter.com/brada"));
+
+      String lines[] = new String(response.getContent()).split("\\r?\\n");
+      for (String line : lines) {
+         log.info ("from twitter" + line);
+      }
+
+      
+      } catch (MalformedURLException e) {
+        // ...
+      } catch (IOException e) {
+       // ...
+    }
+    return value;
   }
 
   /**
