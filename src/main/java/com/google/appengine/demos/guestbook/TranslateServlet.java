@@ -61,7 +61,7 @@ public class TranslateServlet extends HttpServlet {
    
     String feed;
    
-   /* Bug# 2 (Trace)   */
+   /* Bug# 2 (Trace)  
    
    
     if (randInt (0,100) <= 5) {
@@ -70,7 +70,7 @@ public class TranslateServlet extends HttpServlet {
           feed = getTwitterFeed();
        } catch(Exception e) { } 
     }
-   
+    */
    
 
     UserService userService = UserServiceFactory.getUserService();
