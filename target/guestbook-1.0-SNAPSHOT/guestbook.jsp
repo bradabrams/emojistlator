@@ -61,8 +61,7 @@
       //pageContext.setAttribute("guestbookName", newRequestId);
     %>
     
-    <!-- TODO(athicha): Replace sign with translate -->
-    <form action="/sign" method="post">
+    <form action="/translate" method="post">
         <div>
           <input type="text" name="content" style="font-size:15px; height:2em; width:500px;"/>
           <input type="submit" value="Translate">

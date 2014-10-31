@@ -46,9 +46,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.security.InvalidParameterException;
 
-public class SignGuestbookServlet extends HttpServlet {
+public class TranslateServlet extends HttpServlet {
 
-  private static final Logger log = Logger.getLogger(SignGuestbookServlet.class.getName());
+  private static final Logger log = Logger.getLogger(TranslateServlet.class.getName());
 
 
 
