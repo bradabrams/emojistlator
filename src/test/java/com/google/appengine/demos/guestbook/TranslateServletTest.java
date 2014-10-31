@@ -43,7 +43,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class TranslateServletTest {
 
-  private TranslateServlet TranslateServlet;
+  private TranslateServlet translateServlet;
 
   private final LocalServiceTestHelper helper =
       new LocalServiceTestHelper(new LocalDatastoreServiceTestConfig())
