@@ -213,14 +213,14 @@ public class TranslateServlet extends HttpServlet {
 
 
     /*
-    BUG #3: Debuger uncomment this code to fix the bug 
+    BUG #3: Debuger uncomment this code to fix the bug  */
     
     
     value = value.replace ("?", " ?");
     value = value.replace ("!", " !");
     value = value.replace (".", " .");
     value = value.replace ("\"", " \"");
-   */
+  
   
     return value;
 
