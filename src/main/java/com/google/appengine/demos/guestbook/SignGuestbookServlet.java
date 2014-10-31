@@ -51,6 +51,8 @@ public class SignGuestbookServlet extends HttpServlet {
   private static final Logger log = Logger.getLogger(SignGuestbookServlet.class.getName());
 
 
+
+  //Handler for the /sign path
   @Override
   public void doPost(HttpServletRequest req, HttpServletResponse resp)
       throws IOException {
@@ -78,8 +80,11 @@ public class SignGuestbookServlet extends HttpServlet {
     log.info("storing key " + guestbookName);
     Key guestbookKey = KeyFactory.createKey("Guestbook", guestbookName);
 
+
+
+    //Get the content to translate 
     String content = req.getParameter("content");
-    log.info("translate text:" + content);
+
 
 
     Date date = new Date();
@@ -87,13 +92,16 @@ public class SignGuestbookServlet extends HttpServlet {
     
     String[] imageUrls2 = null;
     try {
+      //Get list of Images to display
       imageUrls2 = getImageUrls(content);
       log.info("number of translations:" + imageUrls2.length);
+
+
+    
     } catch (Exception e) {
       StringWriter errors = new StringWriter();
       e.printStackTrace(new PrintWriter(errors));
       log.severe("Something bad happened!" + errors.toString());
-     // throw e;
     }
 
 
@@ -148,6 +156,9 @@ public class SignGuestbookServlet extends HttpServlet {
 
     for (String word: content.split(" ")) {
       switch (word) {
+        case "tonight":
+           l.add ("http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/night_moon.jpg");
+           break;
         case "the":
         case "in":
         case "a":
@@ -174,7 +185,6 @@ public class SignGuestbookServlet extends HttpServlet {
         case "city":
           l.add ("http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/OfficeBuilding.png");
           break;
-        case "tonight":
         case "night":
            l.add ("http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/night_moon.jpg");
            break;
