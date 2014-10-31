@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
     <application>debuggerdemo</application>
-    <version>1</version>
+    <version>42</version>
     <threadsafe>true</threadsafe>
     
+
     <module>default</module>
     <vm>true</vm>
     <manual-scaling>
-        <instances>42</instances>
+        <instances>2</instances>
     </manual-scaling>
 
    <env-variables>

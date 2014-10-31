@@ -190,9 +190,9 @@ public class TranslateServlet extends HttpServlet {
         case "?":
           l.add ("http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/QuestionMark.jpg");
           break;
-       // case "die":
+        case "die":
            // Bug #1: Exception in Logs 
-          // throw new Exception ("ha!  die, get it?");       
+           throw new Exception ("ha!  die, get it?");       
         default:
            log.info ("didn't find image for word");
 
