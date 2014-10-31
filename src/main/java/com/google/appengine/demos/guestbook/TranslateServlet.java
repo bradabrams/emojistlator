@@ -120,7 +120,7 @@ public class TranslateServlet extends HttpServlet {
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(greeting);
 
-    resp.sendRedirect("/guestbook.jsp?guestbookName=" + guestbookName);
+    resp.sendRedirect("/");  //?guestbookName=" + guestbookName);
     log.info("finish processing");
   }
 

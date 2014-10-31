@@ -25,6 +25,6 @@
         <url-pattern>/test</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
-        <welcome-file>guestbook.jsp</welcome-file>
+        <welcome-file>translate.jsp</welcome-file>
     </welcome-file-list>
 </web-app>
