@@ -59,6 +59,7 @@
       //Date date = new Date();
       //String newRequestId = Long.toString(date.getTime());
       //pageContext.setAttribute("guestbookName", newRequestId);
+      
     %>
     
     <form action="/translate" method="post">
