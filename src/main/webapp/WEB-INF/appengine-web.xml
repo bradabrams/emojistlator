@@ -4,6 +4,7 @@
     <version>1</version>
     <threadsafe>true</threadsafe>
     
+    
     <module>default</module>
     <vm>true</vm>
     <manual-scaling>
