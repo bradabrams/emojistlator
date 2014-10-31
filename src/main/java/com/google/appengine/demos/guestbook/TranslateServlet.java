@@ -52,7 +52,7 @@ public class TranslateServlet extends HttpServlet {
 
 
 
-  //Handler for the /sign path
+  //Handler for the /translate path
   @Override
   public void doPost(HttpServletRequest req, HttpServletResponse resp)
       throws IOException {

@@ -1,6 +1,6 @@
 
- # usage: nohup ./debuggerdemo.sh debuggerdemo.appspot.com
- # usage: nohup ./debugger.sh localhost:8080
+ # usage: nohup ./debugload.sh debuggerdemo.appspot.com
+ # usage: nohup ./debugload.sh localhost:8080
 
 path="http://$1"
 
