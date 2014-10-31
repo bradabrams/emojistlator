@@ -204,9 +204,7 @@ public class SignGuestbookServlet extends HttpServlet {
           break;
         case "die":
            // Bug #1: Exception in Logs 
-           throw new Exception ("ha!  die, get it?");
-          break;
-       
+           throw new Exception ("ha!  die, get it?");       
         default:
            log.info ("didn't find image for word");
 
