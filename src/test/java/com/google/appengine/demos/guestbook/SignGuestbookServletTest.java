@@ -41,9 +41,9 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class SignGuestbookServletTest {
+public class TranslateServletTest {
 
-  private SignGuestbookServlet signGuestbookServlet;
+  private TranslateServlet TranslateServlet;
 
   private final LocalServiceTestHelper helper =
       new LocalServiceTestHelper(new LocalDatastoreServiceTestConfig())
@@ -54,7 +54,7 @@ public class SignGuestbookServletTest {
   @Before
   public void setupSignGuestBookServlet() {
     helper.setUp();
-    signGuestbookServlet = new SignGuestbookServlet();
+    translateServlet = new TranslateServlet();
   }
 
   @After
@@ -75,7 +75,7 @@ public class SignGuestbookServletTest {
 
     Date priorToRequest = new Date();
 
-    signGuestbookServlet.doPost(request, response);
+    translateServlet.doPost(request, response);
 
     Date afterRequest = new Date();
 
