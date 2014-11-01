@@ -1,4 +1,3 @@
-
 App Engine Java Guestbook
 Copyright (C) 2010-2014 Google Inc.
 
@@ -16,9 +15,7 @@ Building will run the tests, but to explicitly run tests you can use the test ta
 
 To start the app, use the [App Engine Maven Plugin](http://code.google.com/p/appengine-maven-plugin/) that is already included in this demo.  Just run the command.
 
-//old way--    mvn appengine:devserver
 
-// new way
  mvn appengine:gcloud_app_run
 
 see managed VM's help doc: 
