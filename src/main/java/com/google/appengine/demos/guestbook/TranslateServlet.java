@@ -120,7 +120,7 @@ public class TranslateServlet extends HttpServlet {
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(greeting);
 
-    resp.sendRedirect("/");  //?guestbookName=" + guestbookName);
+    resp.sendRedirect("/");  
     log.info("finish processing");
   }
 
@@ -144,6 +144,7 @@ public class TranslateServlet extends HttpServlet {
            break; // we don't need translations for these
         case "dog":
         case "dogs":
+        case "doggie":
           l.add ("http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/dog.jpg");
           break;
         case "happy":
@@ -154,10 +155,12 @@ public class TranslateServlet extends HttpServlet {
           break;
         case "kiss":
         case "kissed":
+        case "kisses":
           l.add ("http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/kiss.jpg");
           break;
         case "drinks":
         case "drink":
+        case "drank":
           l.add ("http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/cocktail.jpg");
           break;
         case "city":
@@ -187,6 +190,7 @@ public class TranslateServlet extends HttpServlet {
 
         case "question":
         case "questions":
+        case "questioning":
         case "?":
           l.add ("http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/QuestionMark.jpg");
           break;
