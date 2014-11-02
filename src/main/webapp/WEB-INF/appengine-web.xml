@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
     <application>debuggerdemo</application>
-    <version>42</version>
+    <version>fixed</version>
     <threadsafe>true</threadsafe>
     
     <module>default</module>
@@ -11,7 +11,7 @@
     </manual-scaling>
 
    <env-variables>
-      <!-- this is need for the cloud debubger     -->   
+      <!-- this is needed for the cloud debubger     -->   
       <env-var name="CDBG_ENABLE" value="1" />
    </env-variables>
 
