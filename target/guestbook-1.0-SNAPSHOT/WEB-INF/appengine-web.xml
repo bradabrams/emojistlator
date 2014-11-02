@@ -4,7 +4,6 @@
     <version>42</version>
     <threadsafe>true</threadsafe>
     
-
     <module>default</module>
     <vm>true</vm>
     <manual-scaling>
@@ -12,16 +11,12 @@
     </manual-scaling>
 
    <env-variables>
-      <!-- this is need for the cloud debubger  -->      
-      <env-var name="CDBG_ENABLE" value="1" />
+      <!-- this is need for the cloud debubger        
+      <env-var name="CDBG_ENABLE" value="1" />-->
    </env-variables>
 
     <system-properties>
         <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
     </system-properties>
 
-    <!-- TODO(athicha): Try again later -->
-    <!--vm-settings>
-      <setting name="apt_get_install" value="redis-server vim"/>
-    </vm-settings-->
 </appengine-web-app>
