@@ -191,6 +191,15 @@ public class TranslateServlet extends HttpServlet {
         case "surprised":
            l.add ("http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/surprised.png");
            break;        
+        case "grandma":
+        case "grandmother":
+           l.add ("http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/grandma.jpg");
+           break;        
+        case "cupcake":
+        case "birthday":
+        case "cake":
+           l.add ("http://storage.googleapis.com/debuggerdemo.appspot.com/emoji/cupcake.jpg");
+           break;        
 
         case "question":
         case "questions":

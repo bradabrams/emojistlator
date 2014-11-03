@@ -28,7 +28,6 @@
     </div>
 
     <% 
-      //Object requestId = pageContext.getAttribute("guestbookName");
       String requestId = "athicha";
       pageContext.setAttribute("guestbookName", requestId);
       for (int i = 0; i < 10; i++){
@@ -71,7 +70,7 @@
     </form>
 
     <blockquote>${fn:escapeXml(input_text)} =
-       <image src=${greeting_imageUrls0} height="200"></image> 
+       <image src=${greetigng_imageUrls0} height="200"></image> 
        <image src=${greeting_imageUrls1} height="200"></image> 
        <image src=${greeting_imageUrls2} height="200"></image> 
        <image src=${greeting_imageUrls3} height="200"></image> 
@@ -84,7 +83,7 @@
     </blockquote>
 
   </div>
-  <code>limited vocabulary: sad, mad, wow, surprise, worried, dog, happy, hot, kiss, drink, city, night, question, sunny</code>
+  <code>limited vocabulary: grandmap, cupcake, cake, birthday, sad, mad, wow, surprise, worried, dog, happy, hot, kiss, drink, city, night, question, sunny</code>
 
 </body>
 </html>
