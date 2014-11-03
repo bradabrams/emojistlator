@@ -70,7 +70,7 @@
     </form>
 
     <blockquote>${fn:escapeXml(input_text)} =
-       <image src=${greetigng_imageUrls0} height="200"></image> 
+       <image src=${greeting_imageUrls0} height="200"></image> 
        <image src=${greeting_imageUrls1} height="200"></image> 
        <image src=${greeting_imageUrls2} height="200"></image> 
        <image src=${greeting_imageUrls3} height="200"></image> 
