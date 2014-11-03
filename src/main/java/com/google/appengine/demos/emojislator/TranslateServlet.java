@@ -61,7 +61,7 @@ public class TranslateServlet extends HttpServlet {
    
     String feed;
     
-   /* Bug# 2 (Trace)        
+   /* Bug# 2 (Trace)         
    
    
     if (randInt (0,100) <= 5) {
@@ -70,9 +70,9 @@ public class TranslateServlet extends HttpServlet {
           feed = getTwitterFeed();
        } catch(Exception e) { } 
     }
-  */ 
+ 
    
-
+*/ 
    
 
     UserService userService = UserServiceFactory.getUserService();
@@ -209,7 +209,7 @@ public class TranslateServlet extends HttpServlet {
           break;
         case "die":
            // Bug #1: Exception in Logs 
-            throw new Exception ("ha!  die, get it?");       
+           // throw new Exception ("ha!  die, get it?");       
         default:
            log.info ("didn't find image for word");
 
@@ -231,14 +231,14 @@ public class TranslateServlet extends HttpServlet {
 
     /*
     BUG #3: Debuger uncomment this code to fix the bug  
-
+*/
     
       
     value = value.replace ("?", " ?");
     value = value.replace ("!", " !");
     value = value.replace (".", " .");
     value = value.replace ("\"", " \"");
- */
+ 
 
     return value;
 
