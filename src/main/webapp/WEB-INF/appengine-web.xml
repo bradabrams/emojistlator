@@ -11,7 +11,7 @@
     </manual-scaling>
 
    <env-variables>
-      <!-- this is needed for the cloud debubger     -->   
+      <!-- this is needed for the cloud debugger     -->   
       <env-var name="CDBG_ENABLE" value="1" />
    </env-variables>
 
