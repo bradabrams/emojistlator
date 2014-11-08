@@ -11,16 +11,12 @@
     </manual-scaling>
 
    <env-variables>
-      <!-- this is needed for the cloud debugger     -->   
-      <env-var name="CDBG_ENABLE" value="1" />
+      <!-- this is needed for the cloud debugger       
+      <env-var name="CDBG_ENABLE" value="1" />--> 
    </env-variables>
 
     <system-properties>
       <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
     </system-properties>
-<!--
-    <static-files>
-      <include path="/favicon.ico" />
-    </static-files>
--->
+
 </appengine-web-app>
